@@ -1,0 +1,34 @@
+%YAML:1.0
+#########################################BAG TOPIC SETTING#########################################
+imu_topic: "/imu0"
+image0_topic: "/cam0/image_raw"
+cam0_calib: "tum_cam0.yaml"  #camera intrinsic parameter
+image_width: 520
+image_height: 520
+#######################################IMU PARAMETER SETTING#######################################
+gyr_nonlinearity: 0.01  # gyroscope nonlinearity
+int_n: 0.01                     #velocity integration noise standard deviation
+acc_n: 0.032671601          # accelerometer measurement noise standard deviation. 
+gyr_n: 0.001508495         # gyroscope measurement noise standard deviation.   
+acc_w: 0.010135198         # accelerometer bias random work noise standard deviation. 
+gyr_w: 0.000259273       # gyroscope bias random work noise standard deviation.   
+g_norm: 9.80766     # gravity magnitude
+########################################EXTRINSIC PARAMETER########################################
+#IMU-camera0 extrinsic calibration
+body_T_cam0: !!opencv-matrix
+   rows: 4
+   cols: 4
+   dt: d
+   data: [ -0.99953071,  0.00744168, -0.02971511,  0.04536566,
+          0.0294408,  -0.03459565, -0.99896766, -0.071996,
+          -0.00846201, -0.99937369,  0.03436032, -0.04478181,
+          0.0, 0.0, 0.0, 1.0]
+########################################CAMERA SETTING########################################
+feature_min_dist: 10            # min distance between two features, adjust by image size.
+FOCAL_LENGTH:  191.0   #focal length of the camera
+SHOW_TRACK: 1           # publish tracking image as topic
+
+########################################OTHER SETTING########################################
+
+
+

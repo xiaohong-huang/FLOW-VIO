@@ -1,0 +1,38 @@
+%YAML:1.0
+#########################################BAG TOPIC SETTING#########################################
+imu_topic: "/imu0" #imu topic
+image0_topic: "/cam0/image_raw"   #image topic
+cam0_calib: "euroc_cam0.yaml"  #camera intrinsic parameter
+image_width: 752
+image_height: 480
+#######################################IMU PARAMETER SETTING#######################################
+gyr_nonlinearity: 0.01  # gyroscope nonlinearity
+int_n: 0.02                     #velocity integration noise standard deviation
+acc_n: 0.35805          # accelerometer measurement noise standard deviation. 
+gyr_n: 0.00252         # gyroscope measurement noise standard deviation.    
+acc_w: 0.00063         # accelerometer bias random work noise standard deviation.  
+gyr_w: 0.00195       # gyroscope bias random work noise standard deviation.   
+g_norm: 9.81007     # gravity magnitude
+########################################EXTRINSIC PARAMETER########################################
+#IMU-camera0 extrinsic calibration
+body_T_cam0: !!opencv-matrix
+   rows: 4
+   cols: 4
+   dt: d
+   data: [0.0148655429818, -0.999880929698, 0.00414029679422,-0.0216401454975,
+           0.999557249008, 0.0149672133247, 0.025715529948, -0.064676986768,
+           -0.0257744366974, 0.00375618835797, 0.999660727178, 0.00981073058949,
+           0., 0., 0., 1.]
+########################################CAMERA SETTING########################################
+feature_min_dist: 15            # min distance between two features, adjust by image size.
+FOCAL_LENGTH:  460.0   #focal length of the camera
+SHOW_TRACK: 1           # publish tracking image as topic
+########################################OTHER SETTING########################################
+FLOW_BACK: 1          #using the flow-back strategy. It will reduce the possibility for getting a feature outlier (good side). It will also reduce the possibility for getting a long tracking feature (bad side). Enabling this would tend to have better performance in indoor environment.
+ESTIMATE_EXTRINSIC: 0   # online imu-camera extrinsic calibration switch
+
+
+
+
+
+

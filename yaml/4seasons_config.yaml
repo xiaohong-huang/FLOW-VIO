@@ -1,0 +1,34 @@
+%YAML:1.0
+#########################################BAG TOPIC SETTING#########################################
+imu_topic: "imu_raw" #imu topic
+image0_topic: "left_camera"   #image topic
+cam0_calib: "4seasons_cam0.yaml"  #camera intrinsic parameter
+image_width: 800
+image_height: 400
+#######################################IMU PARAMETER SETTING#######################################
+gyr_nonlinearity: 0.01  # gyroscope nonlinearity
+int_n: 0.01           #velocity integration noise standard deviation
+acc_n: 0.2566          # accelerometer measurement noise standard deviation.
+gyr_n: 0.018         # gyroscope measurement noise standard deviation.        
+acc_w: 0.02566        # accelerometer bias random work noise standard deviation. 
+gyr_w: 0.00018       # gyroscope bias random work noise standard deviation.        
+g_norm: 9.83366     # gravity magnitude
+########################################EXTRINSIC PARAMETER########################################
+#IMU-camera0 extrinsic calibration
+body_T_cam0: !!opencv-matrix
+   rows: 4
+   cols: 4
+   dt: d
+   data: [-0.9998852242642398,   -0.00689016185976639 ,  0.013493108151807025,0.17620148743651415 ,
+          -0.013522961078544121,  0.004304637029338397, -0.9998992947410819,-0.05574406512526512 ,
+          0.006831385051241179, -0.9999669973402076,   -0.004397318352110726,0.002235492417057025,
+          0.  ,                  0.       ,             0.,1.                  ]
+########################################CAMERA SETTING########################################
+feature_min_dist: 25            # min distance between two features, adjust by image size.
+FOCAL_LENGTH:  501.4757919305817   #focal length of the camera
+SHOW_TRACK: 1           # publish tracking image as topic
+########################################OTHER SETTING########################################
+FRAME_NUM_FOR_REJECTION: 20
+MASK_NAME: "4seasons_mask.png"
+
+
