@@ -1,6 +1,6 @@
 # FLOW-VIO
 
-
+A Long-Tracked-Feature Linked Optimized Window for Visual-Inertial Odometry
 
 
 ## 1. Prerequisites
